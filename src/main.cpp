@@ -19,5 +19,8 @@ int main() {
     cout<< sock.read(100) << endl;
     cout<<sock.read(100000);
 
+    sock.write("SEARCH OBJECT website{}\n\a");
+    cout<< sock.read(100) <<endl;
+    sock.write(":q");
 
 }
