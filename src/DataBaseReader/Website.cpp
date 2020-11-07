@@ -5,6 +5,20 @@
 #include <sstream>
 #include "Website.h"
 
+int stringToInt(const string& str){
+	stringstream interStream(str);
+	int meduim =0;
+	interStream  >> meduim;
+	return meduim;
+}
+
+//parsers the strings formatted value:{actual}\n
+string findValue(int start, const string &input) {
+    int middle = input.find(start,':');
+    int end = input.find(middle,'\n');
+    return input.substr(middle,end-middle);
+}
+
 /*
  * This constructor parses the following format to retires its member variables
  *  "
@@ -19,9 +33,7 @@ Website::Website(const string &input) {
     m_address = findValue(input.find('\n'),input);
 }
 
-//parsers the strings formatted value:{actual}\n
-string Website::findValue(int start, const string &input) {
-    int middle = input.find(start,':');
-    int end = input.find(middle,'\n');
-    return input.substr(middle,end-middle);
+Keyword::Keyword(const string& input){
+	cout<<"hello";	
 }
+

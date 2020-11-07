@@ -5,6 +5,7 @@
 #ifndef SEARCHENGINE_WEBSITE_H
 #define SEARCHENGINE_WEBSITE_H
 
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -12,12 +13,21 @@ using namespace std;
 class Website {
     int m_id;
     string m_address;
-   static  string findValue(int start,const string& input);
 
 public:
     Website(const string& input);
 
 };
+
+class Keyword {
+
+	public:
+		int m_id;
+		int m_value;
+	
+		Keyword(const string& input);
+};
+
 
 
 #endif //SEARCHENGINE_WEBSITE_H
