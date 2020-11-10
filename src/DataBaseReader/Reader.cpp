@@ -18,7 +18,7 @@ list<string> splitString(string str,const string& del){
 
 
 }
-KeywordData* DatabaseReader::findAllWebsites(list<string> words) {
+list<Website> DatabaseReader::findAllWebsites(list<string> words) {
     string whole;
    for(string keyword: words) {
        m_sock->write("SEARCH OBJECT keyword{word:\"" + keyword + "\";}\n\a");
@@ -57,6 +57,6 @@ KeywordData* DatabaseReader::findAllWebsites(list<string> words) {
     cout<< websites.size() ;
        m_sock->write(":q");
 
-    return NULL;
+    return websites;
 
 }
