@@ -11,12 +11,21 @@ using namespace std;
 
 //data container  object that just stores the information on a website url
 class Website {
-    int m_id;
-    string m_address;
+
+    friend bool operator==(const Website& lhs, const Website& rhs){
+        return lhs.m_id  == rhs.m_id;
+    }
+
+    friend bool operator<(const Website& lhs,const Website& rhs){
+        return lhs.m_score> rhs.m_score;
+    }
 
 public:
     Website(const string& input);
+    int m_id;
+    int m_score;
 
+    string m_address;
 };
 
 class Keyword {
@@ -24,7 +33,7 @@ class Keyword {
 	public:
 		int m_id;
 		int m_value;
-	
+        string m_word;
 		Keyword(const string& input);
 };
 
