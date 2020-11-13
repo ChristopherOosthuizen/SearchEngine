@@ -40,7 +40,7 @@ public:
         m_sock->write(":q");
         delete m_sock;
     }
-    list<Website> findAllWebsites(list<string> keyword);
+    list<Website> findAllWebsites(list<string> keyword,string type);
 };
 
 

@@ -18,11 +18,11 @@ list<string> splitString(string str,const string& del){
 
 
 }
-list<Website> DatabaseReader::findAllWebsites(list<string> words) {
+list<Website> DatabaseReader::findAllWebsites(list<string> words,string type) {
     string whole;
    for(string keyword: words) {
        m_sock->write("SEARCH OBJECT keyword{word:\"" + keyword + "\";}\n\a");
-       string result = m_sock->read(100000);
+       string result = m_sock->read(10090);
        result = result.substr(result.find('\n'));
        whole+= result;
    }
@@ -30,13 +30,14 @@ list<Website> DatabaseReader::findAllWebsites(list<string> words) {
     list<Keyword> keywords;
     for(string str:splits){
         Keyword keyword(str);
+
         keywords.push_back(keyword);
     }
 
 
     list<Website> websites;
     for(Keyword key:keywords) {
-        m_sock->write("SEARCH OBJECT website{id:" + to_string(key.m_id) + ";}\n\a");
+        m_sock->write("SEARCH OBJECT "+type+"{id:" + to_string(key.m_id) + ";}\n\a");
         string websiteData = m_sock->read(1000);
         websiteData = websiteData.substr(websiteData.find("\n\n") + 1);
         Website web(websiteData);

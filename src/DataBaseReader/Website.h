@@ -13,7 +13,7 @@ using namespace std;
 class Website {
 
     friend bool operator==(const Website& lhs, const Website& rhs){
-        return lhs.m_id  == rhs.m_id;
+        return lhs.m_id  == rhs.m_id|| lhs.m_address == rhs.m_address;
     }
 
     friend bool operator<(const Website& lhs,const Website& rhs){

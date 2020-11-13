@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<style>
+    body{ text-align: center; display: flex;margin:20%; align-items: center; justify-content: center; }
+</style>
+<body>
+<h1>Web Cooster</h1><br>
+<input type="text" name="search bar" id="search">
+<input type="button" name="submit" id="submit" value="search">
+<input type="button" name="submit" id="image" value="image">
+<script>
+document.getElementById('submit').onclick = function() {
+    if(document.getElementById("search").value !=="")
+    location.href = '/?=' +document.getElementById("search").value.trim().replaceAll(" ","%").toLowerCase();
+};
+document.getElementById('image').onclick = function() {
+    if(document.getElementById("search").value !=="")
+    location.href = '/images/?=' +document.getElementById("search").value.trim().replaceAll(" ","%").toLowerCase();
+
+}
+</script>
+</body>
+</html>

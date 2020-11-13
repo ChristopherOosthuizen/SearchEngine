@@ -15,7 +15,7 @@ int main(){
 
     string line;
 
-    ifstream file("/home/chris/Projects/SearchEngine/loadData/preloadData.txt");
+    ifstream file("/home/chris/Projects/SearchEngine/loadData/great.txt");
     while(getline(file,line)){
 
         sock.write(line+"\a");
